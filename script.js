@@ -26,11 +26,12 @@ function generateQRCode() {
 }
 
 function downloadQR() {
+    const qrText = document.getElementById('qrText').value;
     if (qrcodeContainer.innerHTML) {
         const qrCodeDataURL = qrcodeContainer.querySelector('img').src;
         const downloadLink = document.createElement('a');
         downloadLink.href = qrCodeDataURL;
-        downloadLink.download = 'qrcode.png';
+        downloadLink.download = "qrcode"+qrText+".png";
         downloadLink.click();
     }
 }
